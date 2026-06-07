@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Om Prakash Pant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-sans bg-black text-white overflow-x-hidden">
+    <style>
+        /* Custom animations and styles */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-30px) rotate(120deg); }
+    66% { transform: translateY(20px) rotate(240deg); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(102, 0, 204, 0.5); }
+    50% { box-shadow: 0 0 40px rgba(102, 0, 204, 0.8), 0 0 60px rgba(102, 0, 204, 0.6); }
+}
+
+@keyframes pulse-neon {
+    0%, 100% { text-shadow: 0 0 10px rgba(102, 0, 204, 0.8), 0 0 20px rgba(102, 0, 204, 0.6); }
+    50% { text-shadow: 0 0 20px rgba(102, 0, 204, 1), 0 0 30px rgba(102, 0, 204, 0.8), 0 0 40px rgba(102, 0, 204, 0.6); }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+.animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(-45deg, #000000, #1a0033, #330066, #4d0099, #6600cc);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.6;
+    animation: float 6s ease-in-out infinite;
+}
+
+.particle:nth-child(1) { 
+    width: 80px; height: 80px; 
+    background: rgba(59, 130, 246, 0.3);
+    top: 20%; left: 10%;
+    animation-delay: 0s;
+}
+
+.particle:nth-child(2) { 
+    width: 60px; height: 60px; 
+    background: rgba(236, 72, 153, 0.3);
+    top: 60%; left: 80%;
+    animation-delay: 2s;
+}
+
+.particle:nth-child(3) { 
+    width: 100px; height: 100px; 
+    background: rgba(34, 197, 94, 0.3);
+    top: 80%; left: 20%;
+    animation-delay: 4s;
+}
+
+.particle:nth-child(4) { 
+    width: 40px; height: 40px; 
+    background: rgba(251, 191, 36, 0.3);
+    top: 30%; left: 70%;
+    animation-delay: 1s;
+}
+
+.particle:nth-child(5) { 
+    width: 70px; height: 70px; 
+    background: rgba(168, 85, 247, 0.3);
+    top: 50%; left: 50%;
+    animation-delay: 3s;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.bounce-animation {
+    animation: bounce 2s infinite;
+}
+
+.skill-bar {
+    transition: width 1s ease-in-out;
+    width: 0;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+    </style>
+    <div class="animated-bg"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <!-- Navigation -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="#home" class="text-xl font-bold text-white hover:scale-105 transition-transform h-12 w-12"><img src="images/om.png" alt=""></a>
+                <nav class="hidden lg:flex items-center space-x-6">
+                    <a href="#home" class="nav-link text-sm font-medium text-slate-200 hover:text-blue-400 transition-colors">Home</a>
+                    <a href="#about" class="nav-link text-sm font-medium text-slate-200 hover:text-blue-400 transition-colors">About</a>
+                    <a href="#projects" class="nav-link text-sm font-medium text-slate-200 hover:text-blue-400 transition-colors">Projects</a>
+                    <a href="#services" class="nav-link text-sm font-medium text-slate-200 hover:text-blue-400 transition-colors">Services</a>
+                    <a href="#contact" class="nav-link text-sm font-medium text-slate-200 hover:text-blue-400 transition-colors">Contact</a>
+                </nav>
+                <button id="mobile-menu-btn" class="lg:hidden p-2 hover:scale-110 transition-transform">
+                    <i class="fas fa-bars text-white text-xl"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="lg:hidden glass border-t border-white/20 hidden">
+                <div class="px-4 py-4 space-y-2">
+                    <a href="#home" class="block py-2 text-base font-medium text-slate-200 hover:text-blue-400">Home</a>
+                    <a href="#about" class="block py-2 text-base font-medium text-slate-200 hover:text-blue-400">About</a>
+                    <a href="#projects" class="block py-2 text-base font-medium text-slate-200 hover:text-blue-400">Projects</a>
+                    <a href="#services" class="block py-2 text-base font-medium text-slate-200 hover:text-blue-400">Services</a>
+                    <a href="#contact" class="block py-2 text-base font-medium text-slate-200 hover:text-blue-400">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen relative z-10">
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center bg-black px-4 pt-16">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="relative mb-8 fade-in-up">
+                    <div class="relative w-48 h-48 mx-auto">
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500/50 to-pink-500/50 blur-xl animate-pulse" style="animation: glow 3s ease-in-out infinite;"></div>
+                        <div class="absolute inset-2 rounded-full glass shadow-xl"></div>
+                        <div class="absolute inset-4 rounded-full overflow-hidden border-4 border-white/20 hover-scale transition-transform">
+                            <img src="images/photo.png" alt="Om Prakash Pant" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-8 fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="flex items-center justify-center gap-2 mb-4">
+                        <i class="fas fa-sparkles text-blue-600"></i>
+                        <span class="text-purple-600 font-medium">Welcome to my portfolio</span>
+                        <i class="fas fa-sparkles text-blue-600"></i>
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-4" style="animation: pulse-neon 2s ease-in-out infinite;">Hi, I'm <span class="text-blue-400">Om Prakash Pant</span></h1>
+                    <div class="flex items-center justify-center gap-2 mb-4">
+                        <i class="fas fa-code text-slate-400"></i>
+                        <p class="text-lg md:text-xl text-slate-200 font-medium">Full-Stack Developer & Digital Experience Creator</p>
+                    </div>
+                    <p class="text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">I craft beautiful, responsive web applications with modern technologies. Specializing in React, Next.js, and creating seamless user experiences.</p>
+                </div>
+                <div class="flex justify-center gap-4 mb-8 fade-in-up" style="animation-delay: 0.4s;">
+                    <a href="https://github.com/ompant2302u" class="p-3 rounded-full glass shadow-lg hover:shadow-xl transition-all hover-lift">
+                        <i class="fab fa-github text-xl text-slate-200 hover:text-blue-400"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/om-prakash-pant-a6b349251/" class="p-3 rounded-full glass shadow-lg hover:shadow-xl transition-all hover-lift">
+                        <i class="fab fa-linkedin text-xl text-slate-200 hover:text-blue-400"></i>
+                    </a>
+                    <a href="https://x.com/OmPrakashPant13" class="p-3 rounded-full glass shadow-lg hover:shadow-xl transition-all hover-lift">
+                        <i class="fab fa-twitter text-xl text-slate-200 hover:text-blue-400"></i>
+                    </a>
+                </div>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12 fade-in-up" style="animation-delay: 0.6s;">
+                    <a href="Om-Pant-cv.pdf"><button class="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all hover-scale" style="box-shadow: 0 0 20px rgba(147, 51, 234, 0.5);" >
+                        <i class="fas fa-download mr-2"></i>Download Resume
+                    </button></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-8 px-4 bg-black">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20 animate-on-scroll">
+                    <div class="glass p-8 rounded-2xl bg-gray-900/80 border border-purple-500/20" style="box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">About Me</h2>
+                        <div class="space-y-4 text-slate-200 leading-relaxed">
+                            <p>A passionate frontend developer with 3+ years of experience building responsive, user-friendly web applications. I specialize in React, Next.js, and modern web technologies.</p>
+                            <p>I focus on crafting interfaces that feel smooth, intuitive, and accessible to everyone. Whether it's a personal project or a production-ready app, I'm always pushing to create something that works well.</p>
+                        </div>
+                    </div>
+                    <div class="glass p-1 rounded-2xl bg-gray-900/80 border border-purple-500/20 hover-lift transition-transform duration-300" style="box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);">
+                        <img src="images/dev.jpg" alt="Developer workspace" class="rounded-xl w-full h-80 object-cover">
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 animate-on-scroll">
+                    <div class="glass p-6 rounded-xl bg-white/80 text-center hover-lift transition-transform">
+                        <i class="fas fa-code text-blue-600 text-2xl mb-2"></i>
+                        <div class="text-2xl font-bold text-white mb-1">50+</div>
+                        <div class="text-sm text-slate-400">Projects</div>
+                    </div>
+                    <div class="glass p-6 rounded-xl bg-white/80 text-center hover-lift transition-transform">
+                        <i class="fas fa-award text-blue-600 text-2xl mb-2"></i>
+                        <div class="text-2xl font-bold text-white mb-1">3+</div>
+                        <div class="text-sm text-slate-400">Years</div>
+                    </div>
+                    <div class="glass p-6 rounded-xl bg-white/80 text-center hover-lift transition-transform">
+                        <i class="fas fa-users text-blue-600 text-2xl mb-2"></i>
+                        <div class="text-2xl font-bold text-white mb-1">20+</div>
+                        <div class="text-sm text-slate-400">Clients</div>
+                    </div>
+                    <div class="glass p-6 rounded-xl bg-white/80 text-center hover-lift transition-transform">
+                        <i class="fas fa-briefcase text-blue-600 text-2xl mb-2"></i>
+                        <div class="text-2xl font-bold text-white mb-1">15+</div>
+                        <div class="text-sm text-slate-400">Technologies</div>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="mb-20 animate-on-scroll">
+                    <div class="text-center mb-12">
+                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">Skills & Technologies</h3>
+                        <p class="text-slate-400 max-w-2xl mx-auto">Technologies I work with and my proficiency levels</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6" id="skills-container">
+                        <!-- Skills will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Experience -->
+                <div class="animate-on-scroll">
+                    <div class="text-center mb-12">
+                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">Work Experience</h3>
+                        <p class="text-slate-400 max-w-2xl mx-auto">My professional journey and career progression</p>
+                    </div>
+                    <div class="relative max-w-4xl mx-auto">
+                        <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-blue-500"></div>
+                        <div id="experience-container">
+                            <!-- Experience items will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-16 px-4 bg-black">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12 animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Featured Projects</h2>
+                    <p class="text-slate-400 max-w-2xl mx-auto">A showcase of my recent work and personal projects</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container">
+                    <!-- Projects will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-16 px-4 bg-black">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12 animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Services</h2>
+                    <p class="text-slate-400 max-w-2xl mx-auto">What I can help you with</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-container">
+                    <!-- Services will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 px-4 bg-black">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12 animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Get In Touch</h2>
+                    <p class="text-slate-400 max-w-2xl mx-auto">Let's discuss your next project</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="animate-on-scroll">
+                        <div class="glass p-8 rounded-2xl bg-slate-50/80">
+                            <h3 class="text-xl font-semibold text-white mb-6">Contact Information</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-envelope text-blue-600"></i>
+                                    <span class="text-slate-200">ompant229@gmail.com</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-phone text-blue-600"></i>
+                                    <span class="text-slate-200">+977-9745438891</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-map-marker-alt text-blue-600"></i>
+                                    <span class="text-slate-200">Putalisadak, Kathmandu</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animate-on-scroll">
+                        <form class="glass p-8 rounded-2xl bg-slate-50/80">
+                            <div class="mb-4">
+                                <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg border border-blue-300 text-black">
+                            </div>
+                            <div class="mb-4">
+                                <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg border border-slate-300 text-black">
+                            </div>
+                            <div class="mb-4">
+                                <textarea placeholder="Your Message" rows="4" class="w-full p-3 rounded-lg border border-slate-300 text-black"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition-colors hover-scale">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 bg-black text-white border-t border-purple-500/20">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+            <div class="md:col-span-2">
+                <h3 class="text-xl font-bold mb-4">Om Prakash Pant</h3>
+                <p class="text-slate-300 mb-4 leading-relaxed">Frontend Developer passionate about creating beautiful, responsive web applications.</p>
+                <div class="space-y-2 text-slate-300">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-envelope text-sm"></i>
+                        <span>ompant229@gmail.com</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-phone text-sm"></i>
+                        <span>+977-9745438891</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-map-marker-alt text-sm"></i>
+                        <span>Putalisadak,  Kathmandu</span>
+                    </div>
+                </div>
+            </div>
+            <div class="md:col-span-2 flex justify-end">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-slate-300 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-slate-300 hover:text-white transition-colors">About</a></li>
+                        <li><a href="#projects" class="text-slate-300 hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="#services" class="text-slate-300 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#contact" class="text-slate-300 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-slate-700 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center gap-6 mb-4 md:mb-0">
+                    <a href="https://github.com/ompant2302u" class="p-3 rounded-full bg-slate-800 hover:bg-slate-700 transition-all hover-lift">
+                        <i class="fab fa-github text-slate-300 hover:text-white"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/om-prakash-pant-a6b349251/" class="p-3 rounded-full bg-slate-800 hover:bg-slate-700 transition-all hover-lift">
+                        <i class="fab fa-linkedin text-slate-300 hover:text-white"></i>
+                    </a>
+                    <a href="https://x.com/OmPrakashPant13" class="p-3 rounded-full bg-slate-800 hover:bg-slate-700 transition-all hover-lift">
+                        <i class="fab fa-twitter text-slate-300 hover:text-white"></i>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+        <div class="border-t border-slate-700 pt-6 mt-6 text-center">
+            <p class="text-slate-400 flex items-center justify-center gap-1">
+                © 2025 Om Prakash Pant. Made with <i class="fas fa-heart text-red-500"></i> using HTML, CSS & JavaScript
+            </p>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // Data
+const skills = [
+    { name: "React", level: 90, color: "bg-blue-500" },
+    { name: "Next.js", level: 85, color: "bg-red-800" },
+    { name: "TypeScript", level: 80, color: "bg-blue-600" },
+    { name: "JavaScript", level: 95, color: "bg-yellow-500" },
+    { name: "Tailwind CSS", level: 90, color: "bg-cyan-500" },
+    { name: "Node.js", level: 75, color: "bg-green-600" },
+    { name: "MongoDB", level: 70, color: "bg-green-500" },
+    { name: "Git", level: 85, color: "bg-orange-500" },
+    { name: "Express.js", level: 70, color: "bg-green-400" },
+    { name: "REST API", level: 80, color: "bg-blue-400" },
+    { name: "Database Management", level: 75, color: "bg-indigo-500" },
+    { name: "Authentication", level: 80, color: "bg-purple-500" },
+    { name: "UI/UX Design", level: 85, color: "bg-pink-500" },
+    { name: "Animation", level: 75, color: "bg-yellow-400" },
+    { name: "Responsive Design", level: 90, color: "bg-teal-500" }
+];
+
+const experiences = [
+    {
+        title: "Senior Frontend Developer",
+        company: "Malangcode innovators",
+        location: "Chabahil, Kathmandu",
+        period: "2022 - Present",
+        description: "Led development of responsive web applications using React and Next.js. Improved performance by 40% and collaborated closely with designers to enhance UI/UX.",
+        side: "left"
+    },
+    {
+        title: "Javascript learner",
+        company: "Uniglobe College",
+        location: "Kamaladi, Kathmandu",
+        period: "2020 - 2022",
+        description: "Completed coursework in web development, focusing on JavaScript, HTML, CSS, and modern frameworks. Developed several projects including a task manager and a personal blog.",
+        side: "right"
+    }
+];
+
+const projects = [
+    {
+        title: "E-commerce Platform",
+        description: "Modern e-commerce website with React, Next.js, and Stripe integration",
+        image: "images/E-commerce.png",
+        technologies: ["React", "Next.js", "Tailwind", "Stripe" ],
+    },
+    {
+        title: "Analytics Dashboard",
+        description: "Real-time analytics dashboard with interactive charts and data visualization",
+        image: "images/data.png",
+        technologies: ["React", "D3.js", "Node.js", "MongoDB"],
+    },
+    {
+        title: "Weather App",
+        description: "Beautiful weather application with location-based forecasts",
+        image: "images/weather.jpg",
+        technologies: ["JavaScript", "API", "CSS3", "HTML5"],
+    },
+    {
+        title: "Blog Platform",
+        description: "Full-stack blog platform with user authentication and content management",
+        image: "images/blog.jpg",
+        technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
+    },
+    {
+        title: "SaaS Landing Page",
+        description: "Responsive landing page for SaaS product with modern design",
+        image: "images/page.jpg",
+        technologies: ["React", "Tailwind", "Framer Motion"],
+    },
+    {
+        title: "Portfolio Website",
+        description: "Personal portfolio website showcasing projects and skills",
+        image: "images/portfolio.png",
+        technologies: ["Next.js", "Tailwind", "TypeScript"],
+    },
+    {
+        title: "Malangcode",
+        description: "Responsive web platform focused on showcasing development services, technical content, or programming-related resources through a modern and responsive user interface.",
+        image: "images/dev.jpg",
+        technologies: ["React", "JavaScript", "HTML5", "CSS3", "Responsive Design"],
+    },
+    {
+        title: "Sudurpaschim",
+        description: "Regional information and tourism-focused website designed to promote the culture, attractions, and identity of Nepal's Sudurpashchim Province.",
+        image: "images/portfolio.png",
+        technologies: ["React", "JavaScript", "HTML5", "CSS3", "Responsive Design"],
+    },
+    {
+        title: "Blog Website Backend",
+        description: "Backend service for a full-stack blogging platform that manages authentication, blog creation, content storage, and API communication.",
+        image: "images/dev.jpg",
+        technologies: ["Node.js", "Express.js", "REST API", "Database Management", "Authentication"],
+    },
+    {
+        title: "Blog Website Frontend",
+        description: "Modern frontend application for a blogging platform that enables users to browse, read, and interact with blog content through an intuitive interface.",
+        image: "images/data.png",
+        technologies: ["React", "JavaScript", "API Integration", "Client-side Routing", "State Management"],
+    },
+    {
+        title: "Animated Website",
+        description: "Visually engaging website that leverages animations and interactive effects to create an immersive user experience.",
+        image: "images/weather.jpg",
+        technologies: ["CSS Animations", "JavaScript", "HTML5", "Interactive Design", "Frontend Development"],
+    },
+    {
+        title: "Smart Tourism App",
+        description: "Tourism-focused application designed to help users discover destinations, travel information, and local attractions through a digital platform.",
+        image: "images/E-commerce.png",
+        technologies: ["React", "JavaScript", "Location-based Services", "Responsive Design", "Tourism Content Management"],
+    }
+];
+
+const services = [
+    {
+        icon: "fas fa-code",
+        title: "Web Development",
+        description: "Custom web applications built with modern technologies like React, Next.js, and TypeScript.",
+        features: ["Responsive Design", "Performance Optimization", "SEO Friendly", "Cross-browser Compatible"]
+    },
+    {
+        icon: "fas fa-mobile-alt",
+        title: "Frontend Development",
+        description: "Beautiful, interactive user interfaces that provide excellent user experience across all devices.",
+        features: ["React/Next.js", "Modern CSS", "JavaScript ES6+", "Mobile First"]
+    },
+    {
+        icon: "fas fa-palette",
+        title: "UI/UX Design",
+        description: "User-centered design approach to create intuitive and engaging digital experiences.",
+        features: ["Wireframing", "Prototyping", "User Research", "Design Systems"]
+    },
+    {
+        icon: "fas fa-rocket",
+        title: "Performance Optimization",
+        description: "Optimize your website's speed and performance for better user experience and SEO.",
+        features: ["Code Splitting", "Lazy Loading", "Image Optimization", "Caching Strategies"]
+    },
+    {
+        icon: "fas fa-tools",
+        title: "Maintenance & Support",
+        description: "Ongoing maintenance and support to keep your website running smoothly and up-to-date.",
+        features: ["Bug Fixes", "Security Updates", "Feature Additions", "Technical Support"]
+    },
+    {
+        icon: "fas fa-search",
+        title: "SEO Optimization",
+        description: "Improve your website's visibility in search engines with technical SEO best practices.",
+        features: ["Technical SEO", "Page Speed", "Meta Optimization", "Schema Markup"]
+    }
+];
+
+// Navigation functionality
+const navbar = document.getElementById('navbar');
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+        navbar.classList.add('glass', 'shadow-lg');
+    } else {
+        navbar.classList.remove('glass', 'shadow-lg');
+    }
+});
+
+// Mobile menu toggle
+mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    const icon = mobileMenuBtn.querySelector('i');
+    if (mobileMenu.classList.contains('hidden')) {
+        icon.className = 'fas fa-bars text-white text-xl';
+    } else {
+        icon.className = 'fas fa-times text-white text-xl';
+    }
+});
+
+// Close mobile menu when clicking on links
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenuBtn.querySelector('i').className = 'fas fa-bars text-white text-xl';
+    });
+});
+
+// Smooth scroll function
+function scrollTo(sectionId) {
+    document.getElementById(sectionId).scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+
+// Add underline effect to nav links
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('mouseenter', function() {
+        this.style.borderBottom = '2px solid #3b82f6';
+    });
+    link.addEventListener('mouseleave', function() {
+        this.style.borderBottom = 'none';
+    });
+});
+
+// Populate Skills
+function populateSkills() {
+    const container = document.getElementById('skills-container');
+    container.innerHTML = skills.map(skill => `
+        <div class="glass p-6 rounded-xl bg-gray-900/80 skill-item hover-lift transition-transform duration-300 border border-purple-500/20" style="box-shadow: 0 0 15px rgba(147, 51, 234, 0.2);">
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-white font-medium">${skill.name}</span>
+                <span class="text-slate-400 text-sm">${skill.level}%</span>
+            </div>
+            <div class="w-full bg-gray-800 rounded-full h-2">
+                <div class="skill-bar h-2 rounded-full ${skill.color}" data-width="${skill.level}"></div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Populate Experience
+function populateExperience() {
+    const container = document.getElementById('experience-container');
+    container.innerHTML = experiences.map((exp, index) => `
+        <div class="relative flex items-center mb-8 ${exp.side === 'right' ? 'md:flex-row-reverse' : 'md:flex-row'}">
+            <div class="w-full md:w-5/12 ${exp.side === 'right' ? 'md:pl-8' : 'md:pr-8'}">
+                <div class="glass p-6 rounded-xl ml-8 md:ml-0 bg-gray-900/80 hover-lift transition-transform duration-300 border border-purple-500/20" style="box-shadow: 0 0 15px rgba(147, 51, 234, 0.2);">
+                    <h4 class="text-xl font-semibold text-white mb-2">${exp.title}</h4>
+                    <h5 class="text-lg font-medium text-blue-600 mb-2">${exp.company}</h5>
+                    <div class="flex items-center gap-4 text-sm text-slate-400 mb-3">
+                        <div class="flex items-center gap-1">
+                            <i class="fas fa-calendar text-xs"></i>
+                            ${exp.period}
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <i class="fas fa-map-marker-alt text-xs"></i>
+                            ${exp.location}
+                        </div>
+                    </div>
+                    <p class="text-slate-200">${exp.description}</p>
+                </div>
+            </div>
+            <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-3 h-3 bg-blue-500 rounded-full border-4 border-white"></div>
+        </div>
+    `).join('');
+}
+
+// Populate Projects
+function populateProjects() {
+    const container = document.getElementById('projects-container');
+    container.innerHTML = projects.map(project => `
+        <div class="glass rounded-xl overflow-hidden bg-gray-900/80 hover:shadow-lg transition-all duration-300 hover-lift animate-on-scroll border border-purple-500/20" style="box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);">
+            <div class="relative overflow-hidden">
+                <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105">
+                <div class="absolute inset-0 bg-black/50 opacity-0 hover:opacity-50 transition-opacity duration-300 flex items-center justify-center gap-4">
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-semibold text-white mb-2">${project.title}</h3>
+                <p class="text-slate-400 mb-4 line-clamp-2">${project.description}</p>
+                <div class="flex flex-wrap gap-2">
+                    ${project.technologies.map(tech => `
+                        <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-sm rounded-full border border-purple-500/30">${tech}</span>
+                    `).join('')}
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Populate Services
+function populateServices() {
+    const container = document.getElementById('services-container');
+    container.innerHTML = services.map(service => `
+        <div class="glass p-8 rounded-xl bg-gray-900/80 hover:shadow-lg transition-all duration-300 hover-lift animate-on-scroll border border-purple-500/20" style="box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);">
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4" style="box-shadow: 0 0 20px rgba(147, 51, 234, 0.5);">
+                    <i class="${service.icon} text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-2">${service.title}</h3>
+                <p class="text-slate-400">${service.description}</p>
+            </div>
+            <ul class="space-y-2">
+                ${service.features.map(feature => `
+                    <li class="flex items-center gap-2 text-slate-200">
+                        <i class="fas fa-check text-green-500 text-sm"></i>
+                        ${feature}
+                    </li>
+                `).join('')}
+            </ul>
+        </div>
+    `).join('');
+}
+
+// Animate skill bars
+function animateSkillBars() {
+    const skillBars = document.querySelectorAll('.skill-bar');
+    skillBars.forEach(bar => {
+        const width = bar.getAttribute('data-width');
+        setTimeout(() => {
+            bar.style.width = width + '%';
+        }, 500);
+    });
+}
+
+// Intersection Observer for animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-up');
+            
+            // Animate skill bars when skills section is visible
+            if (entry.target.querySelector('.skill-item')) {
+                animateSkillBars();
+            }
+        }
+    });
+}, observerOptions);
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    populateSkills();
+    populateExperience();
+    populateProjects();
+    populateServices();
+    
+    // Observe elements for animation
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+    
+    // Form submission
+    const form = document.querySelector('form');
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            form.reset();
+        });
+    }
+});
+
+// Add some interactive effects
+document.addEventListener('mousemove', (e) => {
+    const particles = document.querySelectorAll('.particle');
+    particles.forEach((particle, index) => {
+        const speed = (index + 1) * 0.01;
+        const x = e.clientX * speed;
+        const y = e.clientY * speed;
+        particle.style.transform = `translate(${x}px, ${y}px)`;
+    });
+});
+
+// Smooth scrolling for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+    </script>
+</body>
+</html>
